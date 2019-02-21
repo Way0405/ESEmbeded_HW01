@@ -38,9 +38,7 @@ int main()
         commandPtr->fptr();
         break;
       }
-    
-    // 用上面這樣的好處是....如果當我的按鍵對應的 function 有很多的話
-    // 不用 function 指標，那我可能就要寫一個很大的 switch 然後一堆 case
+
   }
 
   return 0;
@@ -71,26 +69,4 @@ int do_divided()      // do_b() do_c() 類似....
   return 0;
 }
 
-/*
 
-int plus(int a, int b) { return a + b; }
-int minus(int a, int b) { return a - b; }
-int multiply(int a, int b) { return a * b; }
-int divided(int a, int b) { return a / b; }
-int main()
-{
-	int a, c;
-	char b;
-	printf("key a Function \nEX: 1 + 1\n");
-	scanf("%i %c %i", &a, &b, &c);
-	//IF ELSE IF
-	if (b == '+')
-		printf("%d %c %d = %d\n", a, b, c, plus(a, c));
-	else if (b == '-')
-		printf("%d %c %d = %d\n", a, b, c, minus(a, c));
-	else if (b == '*')
-		printf("%d %c %d = %d\n", a, b, c, multiply(a, c));
-	else if (b == '/')
-		printf("%d %c %d = %d\n", a, b, c, divided(a, c));
-}
-*/
