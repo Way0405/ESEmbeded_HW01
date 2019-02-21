@@ -1,23 +1,72 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int plus(int a, int b) { return a + b; }
-int minus(int a, int b) { return a - b; }
-int multiply(int a, int b) { return a * b; }
-int divided(int a, int b) { return a / b; }
+
+float a, c;
+char b;
+
+struct commands
+{
+  int (*fptr) ();
+  int key;
+};
+typedef struct commands commands;
+
+int do_plus(void), do_minus(void), do_multiply(void),do_divided(void);
+commands commandlist[] =
+  {
+    do_plus,       '+',
+    do_minus,      '-',
+    do_multiply,   '*',
+    do_divided,    '/'
+  };
+commands *commandPtr;	
+
 int main()
 {
-	int a, c;
-	char b;
-	printf("key a Function \nEX: 1 + 1\n");
-	scanf("%i %c %i", &a, &b, &c);
-	//IF ELSE IF
-	if (b == '+')
-		printf("%d %c %d = %d\n", a, b, c, plus(a, c));
-	else if (b == '-')
-		printf("%d %c %d = %d\n", a, b, c, minus(a, c));
-	else if (b == '*')
-		printf("%d %c %d = %d\n", a, b, c, multiply(a, c));
-	else if (b == '/')
-		printf("%d %c %d = %d\n", a, b, c, divided(a, c));
+  int ch, key;
+
+  printf("key a Function \nEX: 1 + 1\n");
+  while (1)
+  {
+  	  scanf("%f %c %f", &a, &b, &c);
+    ch = b;
+    commandPtr = commandlist;
+    for (; key = commandPtr->key; commandPtr++)
+      if (ch == key)
+      {
+        commandPtr->fptr();
+        break;
+      }
+
+  }
+
+  return 0;
 }
+
+
+int do_plus()      // do_b() do_c() ÃþŠü....
+{
+  printf("%f %c %f = %f\n", a, b, c, a+c);
+  return 0;
+}
+
+int do_minus()      // do_b() do_c() ÃþŠü....
+{
+  printf("%f %c %f = %f\n", a, b, c, a-c);
+  return 0;
+}
+
+int do_multiply()      // do_b() do_c() ÃþŠü....
+{
+  printf("%f %c %f = %f\n", a, b, c, a*c);
+  return 0;
+}
+
+int do_divided()      // do_b() do_c() ÃþŠü....
+{
+  printf("%f %c %f = %f\n", a, b, c, a/c);
+  return 0;
+}
+
+

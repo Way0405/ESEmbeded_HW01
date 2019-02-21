@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-int a, c;
+float a, c;
 char b;
 
 struct commands
@@ -29,7 +29,7 @@ int main()
   printf("key a Function \nEX: 1 + 1\n");
   while (1)
   {
-  	  scanf("%i %c %i", &a, &b, &c);
+  	  scanf("%f %c %f", &a, &b, &c);
     ch = b;
     commandPtr = commandlist;
     for (; key = commandPtr->key; commandPtr++)
@@ -47,25 +47,25 @@ int main()
 
 int do_plus()      // do_b() do_c() 類似....
 {
-  printf("%d %c %d = %d\n", a, b, c, a+c);
+  printf("%f %c %f = %f\n", a, b, c, a+c);
   return 0;
 }
 
 int do_minus()      // do_b() do_c() 類似....
 {
-  printf("%d %c %d = %d\n", a, b, c, a-c);
+  printf("%f %c %f = %f\n", a, b, c, a-c);
   return 0;
 }
 
 int do_multiply()      // do_b() do_c() 類似....
 {
-  printf("%d %c %d = %d\n", a, b, c, a*c);
+  printf("%f %c %f = %f\n", a, b, c, a*c);
   return 0;
 }
 
 int do_divided()      // do_b() do_c() 類似....
 {
-  printf("%d %c %d = %d\n", a, b, c, a/c);
+  printf("%f %c %f = %f\n", a, b, c, a/c);
   return 0;
 }
 
