@@ -1,7 +1,5 @@
 
 all:main.c
-	gcc main.c -o main.o
-	gcc main.c -o main.elf
+	g++ main.c -o main.out -o main.elf
 clean:
-	rm -f main.o
-
+	rm -f main.out main.elf
