@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 
-float a, c;
-char b;
-
 struct commands
 {
-  int (*fptr) ();
+  void (*fptr) (float,char,float);
   int key;
 };
 typedef struct commands commands;
 
-int do_plus(void), do_minus(void), do_multiply(void),do_divided(void);
+void do_plus(float,char,float), 
+	do_minus(float,char,float), 
+	do_multiply(float,char,float),
+	do_divided(float,char,float);
 commands commandlist[] =
   {
     do_plus,       '+',
@@ -22,51 +22,45 @@ commands commandlist[] =
   };
 commands *commandPtr;	
 /////////////////////////////////////////////////////////////////////////////
-int main()
+void main()
 {
-  int ch, key;
+  float x, y;
+  char op;
+  int operator, key;
 
   printf("key a Function \nEX: 1 + 1\n");
   while (1)
   {
-  	  scanf("%f %c %f", &a, &b, &c);
-    ch = b;
+  	scanf("%f %c %f", &x, &op, &y);
+    operator = op;
     commandPtr = commandlist;
     for (; key = commandPtr->key; commandPtr++)
-      if (ch == key)
+      if (operator == key)
       {
-        commandPtr->fptr();
+        commandPtr->fptr(x,op,y);
         break;
       }
-
   }
 
-  return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////
 
-int do_plus()      
+void do_plus(float a,char b,float c)      
 {
   printf("%f %c %f = %f\n", a, b, c, a+c);
-  return 0;
 }
 
-int do_minus()      // do_b() do_c() ÃþŠü....
+void do_minus(float a,char b,float c)     
 {
   printf("%f %c %f = %f\n", a, b, c, a-c);
-  return 0;
 }
 
-int do_multiply()      // do_b() do_c() ÃþŠü....
+void do_multiply(float a,char b,float c)     
 {
   printf("%f %c %f = %f\n", a, b, c, a*c);
-  return 0;
 }
 
-int do_divided()      // do_b() do_c() ÃþŠü....
+void do_divided(float a,char b,float c)     
 {
   printf("%f %c %f = %f\n", a, b, c, a/c);
-  return 0;
 }
-
-
