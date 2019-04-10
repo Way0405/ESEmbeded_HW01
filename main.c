@@ -9,10 +9,10 @@ struct commands
 };
 typedef struct commands commands;
 
-void do_plus(float,char,float), 
-	do_minus(float,char,float), 
-	do_multiply(float,char,float),
-	do_divided(float,char,float);
+void do_plus(float,char,float);
+void do_minus(float,char,float);
+void do_multiply(float,char,float);
+void do_divided(float,char,float);
 commands commandlist[] =
   {
     do_plus,       '+',
@@ -22,25 +22,32 @@ commands commandlist[] =
   };
 commands *commandPtr;	
 /////////////////////////////////////////////////////////////////////////////
-void main()
+
+
+int main()
 {
+
   float x, y;
   char op;
-  int operator, key;
-
+  int operator_gg;
+  int key; 
+	
   printf("key a Function \nEX: 1 + 1\n");
   while (1)
   {
   	scanf("%f %c %f", &x, &op, &y);
-    operator = op;
+    operator_gg = op;
     commandPtr = commandlist;
     for (; key = commandPtr->key; commandPtr++)
-      if (operator == key)
+      if (operator_gg == key)
       {
         commandPtr->fptr(x,op,y);
         break;
       }
   }
+	
+	
+	return 1;
 
 }
 ////////////////////////////////////////////////////////////////////////////////
